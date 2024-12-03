@@ -1,0 +1,227 @@
+/* Styles globaux */
+body {
+    font-family: 'Poppins', Arial, sans-serif; /* Police moderne et élégante */
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    color: #2c3e50;
+    background: linear-gradient(135deg, #f8f9fa, #e3f2fd); /* Dégradé léger */
+    overflow-x: hidden;
+}
+
+header {
+    background-color: #3498db; /* Bleu principal */
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 3rem;
+    margin: 0;
+    animation: fadeInDown 1s ease-in-out;
+}
+
+header p {
+    font-size: 1.2rem;
+    margin-top: 10px;
+    animation: fadeInUp 1s ease-in-out;
+}
+
+/* Navigation */
+nav {
+    background-color: #2c3e50; /* Gris foncé */
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Adaptable pour petits écrans */
+    position: sticky; /* Toujours visible */
+    top: 0;
+    z-index: 10;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+nav h2 {
+    color: #fff;
+    font-size: 1.5rem;
+    margin: 0;
+    flex: 1 100%; /* Occupe toute la largeur en mobile */
+    text-align: center;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    padding: 0;
+    margin: 0;
+    flex: 1;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.menu li {
+    margin: 0;
+}
+
+.menu a {
+    color: #ecf0f1; /* Blanc cassé */
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    position: relative;
+}
+
+.menu a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    width: 0;
+    background-color: #2980b9; /* Bleu foncé */
+    transition: width 0.3s ease;
+}
+
+.menu a:hover {
+    background-color: #2980b9;
+    color: #fff;
+    transform: scale(1.1);
+}
+
+.menu a:hover::after {
+    width: 100%; /* Effet de soulignement dynamique */
+}
+
+.menu-toggle {
+    display: none;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    font-size: 1.5rem;
+    padding: 5px 10px;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    z-index: 10;
+    border-radius: 50%;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.menu-toggle:hover {
+    background-color: #2980b9;
+    transform: rotate(90deg);
+}
+
+/* Contenu principal */
+main {
+    padding: 20px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+main h2 {
+    font-size: 2rem;
+    color: #34495e;
+    margin-bottom: 20px;
+    text-align: center;
+    animation: fadeInDown 1s ease-in-out;
+}
+
+section h3 {
+    font-size: 1.8rem;
+    color: #2c3e50;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 5px;
+    animation: fadeInUp 1s ease-in-out;
+}
+
+section h4 {
+    font-size: 1.4rem;
+    color: #2c3e50;
+    margin-bottom: 8px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    margin: 5px 0;
+}
+
+ul li a {
+    text-decoration: none;
+    color: #3498db;
+    transition: color 0.3s ease, font-weight 0.3s ease;
+}
+
+ul li a:hover {
+    color: #2980b9;
+    font-weight: bold;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .menu {
+        display: none;
+        flex-direction: column;
+        background-color: #2c3e50;
+        width: 100%;
+        padding: 15px;
+        text-align: center;
+    }
+
+    .menu.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    nav h2 {
+        flex: 1 100%;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

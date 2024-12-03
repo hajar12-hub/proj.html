@@ -1,0 +1,801 @@
+ /* === Réinitialisation des styles de base === */
+ * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* === Corps du document === */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to bottom, #f5f7fa, #c3cfe2);
+    color: #2c3e50;
+    line-height: 1.8;
+    transition: all 0.3s ease-in-out;
+    perspective: 1500px;
+    overflow-x: hidden;
+}
+
+body.dark-mode {
+    background: linear-gradient(to bottom, #2c3e50, #34495e);
+    color: #ecf0f1;
+}
+
+/* === Conteneur Principal === */
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* === En-tête === */
+header {
+    grid-column: span 2;
+    background: radial-gradient(circle at top left, #3498db, #2c3e50);
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transform: rotateX(10deg) translateZ(50px);
+    animation: fadeIn 1s ease-in-out forwards;
+}
+
+header h1 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+header p {
+    font-size: 1.5rem;
+    margin-top: 10px;
+}
+
+/* === Navigation === */
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 20px 0;
+}
+
+nav a {
+    text-decoration: none;
+    color: #2980b9;
+    font-weight: bold;
+    font-size: 1.2em;
+    position: relative;
+    transition: color 0.3s, transform 0.3s;
+}
+
+nav a:hover {
+    color: #3498db;
+    transform: translateY(-5px);
+}
+
+nav a::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    bottom: -5px;
+    left: 0;
+    background-color: #3498db;
+    transition: width 0.3s ease-in-out;
+}
+
+nav a:hover::before {
+    width: 100%;
+}
+
+/* === Sections === */
+section {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transform: rotateY(5deg) translateZ(30px);
+    transition: transform 0.5s, box-shadow 0.3s;
+}
+
+section:hover {
+    transform: rotateY(0deg) translateZ(40px) scale(1.02);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+section h2 {
+    font-size: 2rem;
+    color: #2980b9;
+    margin-bottom: 10px;
+    position: relative;
+    text-transform: capitalize;
+}
+
+section h2::after {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 4px;
+    background-color: #3498db;
+    bottom: -10px;
+    left: 0;
+    border-radius: 2px;
+}
+
+section p {
+    font-size: 1.2rem;
+    margin-top: 15px;
+    line-height: 1.6;
+}
+
+/* === Bouton === */
+button {
+    display: inline-block;
+    background: linear-gradient(to right, #2980b9, #3498db);
+    color: white;
+    padding: 12px 30px;
+    font-size: 1.2em;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+    background: linear-gradient(to right, #3498db, #5dade2);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* === Pied de Page === */
+footer {
+    grid-column: span 2;
+    text-align: center;
+    background: linear-gradient(to right, #2980b9, #3498db);
+    color: white;
+    padding: 15px 20px;
+    border-radius: 10px;
+    box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.2);
+    margin-top: 20px;
+}
+
+/* === Animation d'Entrée === */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+//* === Corps du document === */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to bottom, #f5f7fa, #c3cfe2);
+    color: #2c3e50;
+    line-height: 1.8;
+    transition: all 0.3s ease-in-out;
+    perspective: 1500px;
+    overflow-x: hidden;
+}
+
+body.dark-mode {
+    background: linear-gradient(to bottom, #2c3e50, #34495e);
+    color: #ecf0f1;
+}
+
+/* === Conteneur Principal === */
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* === Barre de Mode Sombre === */
+.dark-mode .top-right-menu {
+    position: fixed;
+    top: 10px; /* Réduire l'espace par rapport au haut */
+    right: 10px; /* Réduire l'espace à droite */
+    z-index: 1000;
+}
+
+#menuToggle {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 8px 12px; /* Réduire la taille du bouton */
+    border-radius: 50%;
+    font-size: 20px; /* Réduire la taille de l'icône */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+#menuToggle:hover {
+    background-color: #2980b9;
+    transform: scale(1.05); /* Réduire l'effet d'agrandissement */
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.submenu {
+    display: none;
+    position: absolute;
+    top: 40px; /* Positionner plus près du bouton */
+    right: 0;
+    background-color: #ffffff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    transform: translateY(-20px);
+    opacity: 0;
+}
+
+.submenu.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Réduire l'espacement dans le menu déroulant */
+.submenu ul li {
+    margin-bottom: 10px;
+    font-size: 16px; /* Réduire la taille de la police */
+}
+
+.submenu ul li a {
+    padding: 12px;
+    font-size: 16px;
+}
+
+/* Effet de survol */
+.submenu ul li a:hover {
+    background-color: #f1f1f1;
+    color: #3498db;
+    border-left: 4px solid #3498db;
+    padding-left: 18px;  /* Réduire l'effet d'indentation */
+}
+
+/* === Corps du document === */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to bottom, #f5f7fa, #c3cfe2);
+    color: #2c3e50;
+    line-height: 1.8;
+    transition: all 0.3s ease-in-out;
+    perspective: 1500px;
+    overflow-x: hidden;
+}
+
+body.dark-mode {
+    background: linear-gradient(to bottom, #2c3e50, #34495e);
+    color: #ecf0f1;
+}
+
+/* === Conteneur Principal === */
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* === Barre de Mode Sombre === */
+
+/* === Mode Sombre === */
+.dark-mode header {
+    background: radial-gradient(circle at top left, #2c3e50, #34495e);
+    height: 150px; /* Réduire la hauteur du header en mode sombre */
+}
+
+/* Vous pouvez aussi ajuster la taille du texte du titre si nécessaire */
+.dark-mode header h1 {
+    font-size: 2.5rem; /* Taille de la police plus petite */
+}
+
+
+#menuToggle:hover {
+    background-color: #2980b9;
+    transform: scale(1.05); /* Réduire l'effet d'agrandissement */
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.submenu {
+    display: none;
+    position: absolute;
+    top: 40px; /* Positionner plus près du bouton */
+    right: 0;
+    background-color: #ffffff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    transform: translateY(-20px);
+    opacity: 0;
+}
+
+.submenu.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Réduire l'espacement dans le menu déroulant */
+.submenu ul li {
+    margin-bottom: 10px;
+    font-size: 16px; /* Réduire la taille de la police */
+}
+
+.submenu ul li a {
+    padding: 12px;
+    font-size: 16px;
+}
+
+/* Effet de survol */
+.submenu ul li a:hover {
+    background-color: #f1f1f1;
+    color: #3498db;
+    border-left: 4px solid #3498db;
+    padding-left: 18px;  /* Réduire l'effet d'indentation */
+}
+
+
+/* === Responsivité === */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav a {
+        margin-bottom: 10px;
+    }
+
+    header h1 {
+        font-size: 2.5rem;
+    }
+
+    header p {
+        font-size: 1.2rem;
+    }
+
+    section h2 {
+        font-size: 1.8rem;
+    }
+
+    section p {
+        font-size: 1rem;
+    }
+}
+/* === Barre latérale à droite === */
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 250px;
+    height: 100vh;
+    background: linear-gradient(to top, #3498db, #2c3e50);
+    color: white;
+    padding: 20px;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    z-index: 1000;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+}
+
+.sidebar.active {
+    transform: translateX(0);
+}
+
+.sidebar h3 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-bottom: 2px solid #fff;
+    padding-bottom: 10px;
+}
+
+.sidebar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    flex-grow: 1;
+}
+
+.sidebar ul li {
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar ul li::before {
+    content: "•";
+    color: #2980b9;
+    font-size: 1.5rem;
+    margin-right: 10px;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+}
+
+.sidebar ul li a:hover {
+    color: #5dade2;
+}
+
+.sidebar .footer {
+    text-align: center;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* === Bouton pour afficher la barre latérale === */
+.sidebar-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    z-index: 1100;
+    transition: background 0.3s ease;
+}
+
+.sidebar-toggle:hover {
+    backgr…
+ChatGPT a dit :
+ChatGPT
+To align the button for subtitles to the right without changing any other styles, you can add the following CSS rule to the relevant part of your code:
+
+css
+Copier le code
+.submenu button {
+    float: right;
+}
+This will position the button within the .submenu section to the right side. If the button is not inside the .submenu, you can adjust the selector accordingly to target the specific button you wish to align.
+
+
+
+
+
+
+Vous avez dit :
+le code css complet avec la dernier  modification 
+ChatGPT a dit :
+ChatGPT
+Voici le code CSS complet avec la modification demandée, où le bouton des sous-titres est aligné à droite :
+
+css
+Copier le code
+/* === Réinitialisation des styles de base === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* === Corps du document === */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to bottom, #f5f7fa, #c3cfe2);
+    color: #2c3e50;
+    line-height: 1.8;
+    transition: all 0.3s ease-in-out;
+    perspective: 1500px;
+    overflow-x: hidden;
+}
+
+body.dark-mode {
+    background: linear-gradient(to bottom, #2c3e50, #34495e);
+    color: #ecf0f1;
+}
+
+/* === Conteneur Principal === */
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* === En-tête === */
+header {
+    grid-column: span 2;
+    background: radial-gradient(circle at top left, #3498db, #2c3e50);
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transform: rotateX(10deg) translateZ(50px);
+    animation: fadeIn 1s ease-in-out forwards;
+}
+
+header h1 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+header p {
+    font-size: 1.5rem;
+    margin-top: 10px;
+}
+
+/* === Navigation === */
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 20px 0;
+}
+
+nav a {
+    text-decoration: none;
+    color: #2980b9;
+    font-weight: bold;
+    font-size: 1.2em;
+    position: relative;
+    transition: color 0.3s, transform 0.3s;
+}
+
+nav a:hover {
+    color: #3498db;
+    transform: translateY(-5px);
+}
+
+nav a::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    bottom: -5px;
+    left: 0;
+    background-color: #3498db;
+    transition: width 0.3s ease-in-out;
+}
+
+nav a:hover::before {
+    width: 100%;
+}
+
+/* === Sections === */
+section {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transform: rotateY(5deg) translateZ(30px);
+    transition: transform 0.5s, box-shadow 0.3s;
+}
+
+section:hover {
+    transform: rotateY(0deg) translateZ(40px) scale(1.02);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+section h2 {
+    font-size: 2rem;
+    color: #2980b9;
+    margin-bottom: 10px;
+    position: relative;
+    text-transform: capitalize;
+}
+
+section h2::after {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 4px;
+    background-color: #3498db;
+    bottom: -10px;
+    left: 0;
+    border-radius: 2px;
+}
+
+section p {
+    font-size: 1.2rem;
+    margin-top: 15px;
+    line-height: 1.6;
+}
+
+/* === Bouton === */
+button {
+    display: inline-block;
+    background: linear-gradient(to right, #2980b9, #3498db);
+    color: white;
+    padding: 12px 30px;
+    font-size: 1.2em;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+    background: linear-gradient(to right, #3498db, #5dade2);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* === Pied de Page === */
+footer {
+    grid-column: span 2;
+    text-align: center;
+    background: linear-gradient(to right, #2980b9, #3498db);
+    color: white;
+    padding: 15px 20px;
+    border-radius: 10px;
+    box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.2);
+    margin-top: 20px;
+}
+
+/* === Animation d'Entrée === */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* === Barre de Mode Sombre === */
+.dark-mode .top-right-menu {
+    position: fixed;
+    top: 10px; /* Réduire l'espace par rapport au haut */
+    right: 10px; /* Réduire l'espace à droite */
+    z-index: 1000;
+}
+
+#menuToggle {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 8px 12px; /* Réduire la taille du bouton */
+    border-radius: 50%;
+    font-size: 20px; /* Réduire la taille de l'icône */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+#menuToggle:hover {
+    background-color: #2980b9;
+    transform: scale(1.05); /* Réduire l'effet d'agrandissement */
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.submenu {
+    display: none;
+    position: absolute;
+    top: 40px; /* Positionner plus près du bouton */
+    right: 0;
+    background-color: #ffffff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    transform: translateY(-20px);
+    opacity: 0;
+}
+
+.submenu.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Réduire l'espacement dans le menu déroulant */
+.submenu ul li {
+    margin-bottom: 10px;
+    font-size: 16px; /* Réduire la taille de la police */
+}
+
+.submenu ul li a {
+    padding: 12px;
+    font-size: 16px;
+}
+
+/* Effet de survol */
+.submenu ul li a:hover {
+    background-color: #f1f1f1;
+    color: #3498db;
+    border-left: 4px solid #3498db;
+    padding-left: 18px;  /* Réduire l'effet d'indentation */
+}
+
+/* === Responsivité === */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav a {
+        margin-bottom: 10px;
+    }
+
+    header h1 {
+        font-size: 2.5rem;
+    }
+
+    header p {
+        font-size: 1.2rem;
+    }
+
+    section h2 {
+        font-size: 1.8rem;
+    }
+
+    section p {
+        font-size: 1rem;
+    }
+}
+
+/* === Barre latérale à droite === */
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 250px;
+    height: 100vh;
+    background: linear-gradient(to top, #3498db, #2c3e50);
+    color: white;
+    padding: 20px;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    z-index: 1000;
+    transform: translateX(100%);
+   
+
+
+
+
+
+
+

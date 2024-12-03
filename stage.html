@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ressources pour trouver des stages et conseils sur les candidatures.">
+    <title>Stages - Laureate</title>
+    <link rel="stylesheet" href="csssatge.css">
+    <script defer src="jsstage.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Stages</h1>
+        <p>Ressources pour trouver des stages et conseils sur les candidatures.</p>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <button class="menu-toggle" aria-label="Ouvrir le menu">☰</button>
+        <div class="menu">
+            <h2>Navigation</h2>
+            <ul>
+                <li><a href="1 mini projet .html">Retour à l'accueil</a></li>
+                <li><a href="soft skills .html">Soft Skills</a></li>
+                <li><a href="educatinal system.html">Educational Resources</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <h2>Sections disponibles</h2>
+        <ul>
+            <li><a href="#RH">Ressources Humaines</a></li>
+            <li><a href="#forum">Forum des Stages</a></li>
+            <li><a href="#job-applications">Candidatures aux Offres d'Emploi</a></li>
+        </ul>
+
+        <!-- Section Ressources Humaines -->
+        <section id="RH">
+            <h3>Ressources Humaines</h3>
+            <p>Explorez les ressources disponibles pour aider les étudiants à mieux comprendre les opportunités de stages et d'emplois.</p>
+        </section>
+
+        <!-- Forum des Stages -->
+        <section id="forum">
+            <h3>Forum des Stages</h3>
+            <p>Rejoignez notre forum pour échanger des informations, poser des questions et trouver des opportunités de stage.</p>
+        </section>
+
+        <!-- Candidatures aux Offres d'Emploi -->
+        <section id="job-applications">
+            <h3>Candidatures aux Offres d'Emploi</h3>
+            <p>Découvrez des astuces et conseils pour réussir vos candidatures aux offres d'emploi et stages.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Laureate. Tous droits réservés.</p>
+    </footer>
+
+    <script>
+        // JavaScript pour la gestion de l'ouverture du menu sur mobile
+        const menuToggle = document.querySelector('.menu-toggle');
+        const menu = document.querySelector('.menu');
+
+        menuToggle.addEventListener('click', () => {
+            menu.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
